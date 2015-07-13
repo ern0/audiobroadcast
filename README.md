@@ -16,7 +16,7 @@ Simple web app for playing netradio streams on a Raspberry PI (or any Linux syst
 
 ### Instructions ###
 
-Install MPD
+Install MPD on Raspberry PI:
 ```
 sudo apt-get install mpd mpc
 ```
