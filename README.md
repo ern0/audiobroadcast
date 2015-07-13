@@ -11,7 +11,7 @@ Simple web app for playing netradio streams on a Raspberry PI (or any Linux syst
 **Solution:**
 - I have a Rasbperry PI
 - I've installed MPD (Music Player Daemon)
-- I've bought a cheap Chinese FM transmitter - http://s896.photobucket.com/user/Blarneyjon/media/Blarney-jon%203/Jwin_JACK702W_FM_Transmitter.jpg.html
+- I've bought a cheap Chinese FM transmitter - <img src="http://s896.photobucket.com/user/Blarneyjon/media/Blarney-jon%203/Jwin_JACK702W_FM_Transmitter.jpg.html" width="200" />
 - I've written this script to access my favourite stations from mobile
 
 ### Instructions ###
