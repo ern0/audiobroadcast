@@ -1,7 +1,7 @@
 # audiobroadcast
 Simple web app for playing netradio streams on a Raspberry PI (or any Linux systems)
 
-==== Scope ====
+### Scope ###
 
 **Problem:** 
 - There is a radio set in the kitchen
@@ -14,7 +14,7 @@ Simple web app for playing netradio streams on a Raspberry PI (or any Linux syst
 - I've bought a cheap Chinese FM transmitter - http://s896.photobucket.com/user/Blarneyjon/media/Blarney-jon%203/Jwin_JACK702W_FM_Transmitter.jpg.html
 - I've written this script to access my favourite stations from mobile
 
-==== Instructions ====
+### Instructions ###
 
 Install MPD
 ```
