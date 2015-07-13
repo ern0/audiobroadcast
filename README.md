@@ -1,7 +1,7 @@
 # audiobroadcast
 Simple web app for playing netradio streams on a Raspberry PI (or any Linux systems)
 
-### Scope ###
+### Project Scope ###
 
 **Problem:** 
 - There is a radio set in the kitchen
@@ -21,7 +21,7 @@ Install MPD
 sudo apt-get install mpd mpc
 ```
 
-Download and install this app to a folder, e.g. `/opt/audiobroadcast`. Edit `playlist.txt`, one item per line, fields are separated with caret ('^'):
+Download and copy files to a folder, e.g. `/opt/audiobroadcast`. Edit `playlist.txt`, one item per line, fields are separated with caret ('^'):
 ```
 My Fav Radio^http://example.com/icon.png^http://example.com/stream.m3u
 Another One^http://example.com/icon.jpg^http://example.com:9900/stream2.m3u
@@ -33,4 +33,4 @@ cd /opt/audiobroadcast
 ./radio.py
 ```
 
-Point your browser to `http://raspi:8888/` where "raspi" is your Raspberry PI's hostname or IP address.
+Point your browser to `http://raspi:8888/` where "raspi" is your Raspberry PI's hostname or IP address. Connect your transmitter or amp to Raspberry PI. Push up the volume!
