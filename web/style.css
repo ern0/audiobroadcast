@@ -1,0 +1,40 @@
+html, body {
+	width: 100%;
+	height: 100%;
+}
+.fixpage {
+	overflow: auto;
+}
+.flat {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+::-webkit-scrollbar { 
+	display: none; 
+}
+.thumbwrapper > img	 {
+	width: 52px;
+	height: 52px;
+}
+.thumbwrapper {
+	float: left;
+	margin-right: 15px;
+	border: 2px solid #dddddd;
+}
+.caption {
+	position: relative;
+	top: 18px;
+	font-size: 20px;
+}
+#stop {
+	margin-left: 12%;
+	width: 170px;
+}
+#stop > li > a {
+	background: #eeeeee;
+}
+#stop > li > a > .thumbwrapper {
+	border: none;
+}
+

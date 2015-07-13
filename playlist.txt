@@ -1,0 +1,8 @@
+Tilos Rádió^http://thedurgas.com/wp-content/uploads/2013/03/ungarn_medienrat_stellt_verfahren_07_tilos_radio20110112153844.jpg^http://stream.tilos.hu/tilos_128.mp3
+Klubrádió^http://hir.ma/wp-content/uploads/2013/02/klubr%C3%A1di%C3%B3.jpg^http://stream.klubradio.hu:8080/bpstream
+Első Pesti Egyetemi Rádió^http://d1i6vahw24eb07.cloudfront.net/s106604q.png^http://radio.elte.hu:8000/eper2
+RadioTunes Best of the 80's^http://api.audioaddict.com/v1/assets/image/e7839be1803a7734a554b55537b62968.png?size=178x178^http://pub7.radiotunes.com:80/radiotunes_the80s_aacplus?736c4ec450c33cbb33a14e14
+Frisky^https://s3.amazonaws.com/media.friskyradio.com/showthumb/1359642687-feelinfrisky.png^http://stream2.friskyradio.com:8000/frisky_mp3_hi
+DI.fm Tech House^http://api.audioaddict.com/v1/assets/image/a1cb226c2170a74ed0fdb4839dafe869.png?size=200x200^http://pub8.di.fm:80/di_techhouse?736c4ec450c33cbb33a14e14
+DI.fm Minimal^http://api.audioaddict.com/v1/assets/image/5c29e3063f748d156260fb874634b602.png?size=200x200^http://pub1.di.fm:80/di_minimal_aac?736c4ec450c33cbb33a14e14
+DI.fm Deep House^http://api.audioaddict.com/v1/assets/image/8dd90c88b4ee5399e6182204a2ede8ed.jpg?size=200x200^http://pub7.di.fm:80/di_deephouse_aac?736c4ec450c33cbb33a14e14

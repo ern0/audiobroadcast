@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Kertrádió</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />	
+	<link rel="apple-touch-icon" href="lib/jquery-mobile/images/icons-png/eye-black.png" />	
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="lib/jquery-mobile/jquery.mobile-1.4.4.min.css" />
+	<link rel="stylesheet" href="style.css" />
+	<script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-mobile/jquery.mobile-1.4.4.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</head> 
+<body> 
+
+
+	<div id="player" class="fixpage" data-role="page">
+
+		<div data-role="header" data-position="fixed">
+			<h1>Kertrádió</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">		
+
+			<ul id="list" class="flat" data-role="listview" data-inset="true" data-filter="no" data-icon="false">
+			
+				<li id="t" style="display:none;"><a href="#">
+					<div class="thumbwrapper">
+						<img src="#" class="thumb">
+					</div>
+					<div class="caption">
+						The Title
+					</div>
+				</a></li>
+				
+			</ul>
+
+			<ul id="stop" class="flat" data-role="listview" data-inset="true" data-filter="no" data-icon="false">
+
+				<li><a href="#" onclick="stop();">
+					<div class="thumbwrapper">
+						<img src="img/stop.png" class="thumb">
+					</div>
+					<div class="caption">
+						STOP
+					</div>
+				</a></li>
+				
+			</ul>
+			
+		</div><!-- /content grid -->
+
+		<div data-role="footer" data-position="fixed">
+			<h4>FM 88.3 MHz</h4>
+		</div>
+
+	</div><!-- /page -->
+
+</body>
+</html>
