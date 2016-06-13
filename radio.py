@@ -108,7 +108,7 @@ class RadioRequest(SimpleHTTPServer.SimpleHTTPRequestHandler):
 			url = self.server.getItemUrl(self.server.current - 1)
 			self.server.mpc("load " + url)
 			self.server.mpc("add " + url)
-			self.server.mpc("play 1")
+			self.server.mpc("play")
 			self.report("playing",self.server.current)		
 		except:
 			self.server.current = -1
@@ -116,13 +116,13 @@ class RadioRequest(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	
 	def procYoutube(self):
 		try:
-			self.server.current = 1
+			self.server.current = -1
 			self.server.mpc("clear")
 			self.server.mpc("repeat off")
 			url = self.path[9:]
-			cmd = "`youtube-dl -g " + url + "`"
+			cmd = "`youtube-dl -g -f 5 " + url + "`"
 			self.server.mpc("add " + cmd)
-			self.server.mpc("play 1")
+			self.server.mpc("play")
 			self.report("playing",self.server.current)		
 		except:
 			self.server.current = -1
