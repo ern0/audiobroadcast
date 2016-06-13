@@ -34,10 +34,12 @@
 		var n = 1;
 		for (i in data.list) {
 		
-			var name = data.list[i].n;
+			var token = data.list[i].n;
+			var name = token;
+			token = token.toLowerCase()
+			if (name[0] == "_") name.substring(1);
 			var image = data.list[i].i;
 			var stream = data.list[i].s;
-			
 			
 			var item = $("#t").clone();
 			var id = "item" + n;
@@ -45,11 +47,34 @@
 			$(item).data("item",n);
 			$(item).find(".caption").html(name);
 			$(item).find(".thumbwrapper > img").prop("src",image);
-			$(item).bind("click",function() {
-				$.ajax({url:"/play/" + $(this).data("item")}).done(function(res) {
-					procState(res);
+			
+			if (token == "_youtube") {
+
+				$(item).find(".caption").hide();
+				$(item).find(".input").show().html('<input type="text" class="url" /><input value="go" class="go" type="submit"/>');
+				
+				$(item).find(".input").on("keyup",function(event) {
+					if (event.keyCode == 13) $(this).find(".go").trigger("click");
 				});
-			});
+				
+				$(item).find(".go").on("click",function() {
+					url = $(this).parent().find(".url").val();
+					$.ajax({url:"/youtube/" + url}).done(function(res) {
+						procState(res);
+					});
+				});
+
+			} else {
+			
+				$(item).find(".input").hide();
+				$(item).find(".caption").show();
+				$(item).bind("click",function() {
+					$.ajax({url:"/play/" + $(this).data("item")}).done(function(res) {
+						procState(res);
+					});
+				});
+				
+			}
 			
 			$("#list").append(item);
 			item.show();

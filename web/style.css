@@ -27,6 +27,19 @@ html, body {
 	top: 18px;
 	font-size: 20px;
 }
+.input {
+	position: relative;
+	top: 18px;
+	font-size: 20px;
+}
+.url {
+	width: 70%;
+	border: 1px solid #aaaaaa;
+	margin-right: 6px;
+}
+.go {
+	width: 10%;
+}
 #stop {
 	margin-left: 12%;
 	width: 170px;

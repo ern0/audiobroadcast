@@ -14,7 +14,7 @@ class RadioServer(SocketServer.ThreadingTCPServer):
 		self.mpc("stop")
 		self.current = -1
 		self.load()
-
+        
 	def load(self):	
 		self.playlist = []
 		f = open("../playlist.txt")
@@ -24,6 +24,7 @@ class RadioServer(SocketServer.ThreadingTCPServer):
 			self.playlist[i] = self.playlist[i].rstrip("\n")	
 
 	def mpc(self,cmd):
+	
 		print("MPC: " + cmd)
 		os.system("mpc " + cmd)
 		
@@ -38,20 +39,27 @@ class RadioRequest(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	def __init__(self,req,clientAddress,server):
 		SimpleHTTPServer.SimpleHTTPRequestHandler.__init__(self,req,clientAddress,server)
 		self.server = server
+
+
+	def log_message(self,format,*args):
+		return
 		
+				
 	def do_GET(self):
 	
 		try: cmd = self.path.split("/")
 		except: cmd = ""
 		
-		if (cmd[1] == "list"):
+		if cmd[1] == "list":
 			self.procList()
-		elif (cmd[1] == "stop"):
+		elif cmd[1] == "stop":
 			self.procStop()
 			self.server.load()
-		elif (cmd[1] == "play"):
+		elif cmd[1] == "play":
 			self.procPlay(cmd[2])
-		elif (cmd[1] == "state"):
+		elif cmd[1] == "youtube":
+			self.procYoutube()
+		elif cmd[1] == "state":
 			self.procState()
 		else:
 			SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
@@ -64,11 +72,12 @@ class RadioRequest(SimpleHTTPServer.SimpleHTTPRequestHandler):
 		self.wfile.write(kontent)
 		
 	def report(self,cmd,state):
+		#print("report cmd=" + cmd + " state=" + str(state))
 		self.resp("{\"result\":\"" + cmd + "\",\"current\":\"" + str(state) + "\"}\n")
 			
 	def procList(self):
 		r = "{"
-		if (self.server.current > -1):	cmd = "playing"
+		if self.server.current > -1:	cmd = "playing"
 		else: cmd = "stopped"
 		r += "\"result\":\"" + cmd + "\",\"current\":\"" + str(self.server.current) + "\","
 		r += "\"list\":{"
@@ -88,7 +97,7 @@ class RadioRequest(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	def procStop(self):
 		self.server.current = -1
 		self.server.mpc("stop")		
-		self.server.mpc("repeat off")
+		self.server.mpc("repeat off")		
 		self.report("stopped",-1)
 		
 	def procPlay(self,no):
@@ -97,6 +106,7 @@ class RadioRequest(SimpleHTTPServer.SimpleHTTPRequestHandler):
 			self.server.mpc("clear")
 			self.server.mpc("repeat on")
 			url = self.server.getItemUrl(self.server.current - 1)
+			self.server.mpc("load " + url)
 			self.server.mpc("add " + url)
 			self.server.mpc("play 1")
 			self.report("playing",self.server.current)		
@@ -104,6 +114,20 @@ class RadioRequest(SimpleHTTPServer.SimpleHTTPRequestHandler):
 			self.server.current = -1
 			self.report("failed",-1)		
 	
+	def procYoutube(self):
+		try:
+			self.server.current = 1
+			self.server.mpc("clear")
+			self.server.mpc("repeat off")
+			url = self.path[9:]
+			cmd = "`youtube-dl -g " + url + "`"
+			self.server.mpc("add " + cmd)
+			self.server.mpc("play 1")
+			self.report("playing",self.server.current)		
+		except:
+			self.server.current = -1
+			self.report("failed",-1)		
+		
 	def procState(self):
 		if self.server.current == -1: sta = "stopped"
 		else: sta = "playing"
